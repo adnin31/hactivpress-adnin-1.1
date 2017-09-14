@@ -7,11 +7,19 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
-    allArticle: []
+    allArticle: [],
+    allCategory: [],
+    allAuthor: []
   },
   mutations: {
     setAllArticle (state, payload) {
       state.allArticle = payload
+    },
+    setAllCategory (state, payload) {
+      state.allCategory = payload
+    },
+    setAllAuthor (state, payload) {
+      state.allAuthor = payload
     }
   },
   actions: {
@@ -20,6 +28,18 @@ export const store = new Vuex.Store({
       axios.get(`http://localhost:3000/api/articles`)
       .then(res => {
         commit('setAllArticle', res.data)
+      })
+    },
+    getCategory ({commit}, id) {
+      axios.get(`http://localhost:3000/api/articles/category/${id}`)
+      .then(res => {
+        commit('setAllCategory', res.data)
+      })
+    },
+    getAuthor ({commit}, id) {
+      axios.get(`http://localhost:3000/api/articles/author/${id}`)
+      .then(res => {
+        commit('setAllAuthor', res.data)
       })
     }
   }

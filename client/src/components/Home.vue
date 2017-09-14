@@ -1,7 +1,9 @@
 <template>
   <div class="">
     <Navbar></Navbar>
-    <button type="button" name="button"></button>
+    <div class="container" style="margin-bottom: 30px">
+      <router-link class = "btn btn-primary" type="button" name="button" :to="'/addarticles'">Add Articles</router-link>
+    </div>
     <router-view></router-view>
   </div>
 </template>

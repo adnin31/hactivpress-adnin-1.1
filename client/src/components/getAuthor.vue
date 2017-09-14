@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="container">
-    <div class="col-md-8" v-for="article in allArticle">
+    <div class="col-md-8" v-for="article in allAuthor">
       <div class="panel panel-success">
         <div class="panel-heading">
           <h3 class="panel-title">{{article.title}}</h3>
@@ -19,12 +19,9 @@
 
 <script>
 export default {
-  created () {
-    this.$store.dispatch('getAllArticle')
-  },
   computed: {
-    allArticle () {
-      return this.$store.state.allArticle
+    allAuthor () {
+      return this.$store.state.allAuthor
     }
   }
 }
