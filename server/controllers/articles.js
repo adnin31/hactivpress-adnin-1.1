@@ -47,4 +47,10 @@ function getByCategory(req, res) {
   .then(data => res.send(data))
   .catch(err => res.send(err))
 }
-module.exports = {getAllArticles, insertArticle, updateArticle, deleteArticle, getByAuthor,getByCategory};
+function getOneArticles (req, res) {
+  req.params
+  Articles.findOne({_id: req.params.id})
+  .then(data => res.send(data))
+  .catch(err => res.send(err))
+}
+module.exports = {getAllArticles, insertArticle, updateArticle, deleteArticle, getByAuthor ,getByCategory, getOneArticles};
