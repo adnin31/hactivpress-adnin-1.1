@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var cors = require('cors')
 
 mongoose.connect('mongodb://localhost/hacktivpress-adnin',(err) => {
   err ? console.log('Can\'t connect to database') : console.log('Database connected')
@@ -15,6 +16,7 @@ var articles = require('./routes/articles');
 
 var app = express();
 
+app.use(cors())
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
