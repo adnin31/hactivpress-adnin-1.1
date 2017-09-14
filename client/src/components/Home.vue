@@ -1,6 +1,7 @@
 <template>
   <div class="">
     <Navbar></Navbar>
+    <button type="button" name="button"></button>
     <router-view></router-view>
   </div>
 </template>

@@ -13,8 +13,14 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
-        <li><a href="#">Category</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Category <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li v-for="article in allArticle"><a href="#">{{article.author}}</a></li>
+          </ul>
+        </li>
       </ul>
+
       <ul class="nav navbar-nav">
         <li><a href="#">Author</a></li>
       </ul>
@@ -28,6 +34,11 @@
 
 <script>
 export default {
+  computed: {
+    allArticle () {
+      return this.$store.state.allArticle
+    }
+  }
 }
 </script>
 
