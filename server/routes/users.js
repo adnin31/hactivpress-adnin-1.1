@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/register', (req, res) => res.send('register') );
+/* GET home page. */
+router.post('/register', (req, res) => res.send('ini resgiter'));
+router.post('/signin' , (req, res) => res.send('ini signin'))
 
 module.exports = router;

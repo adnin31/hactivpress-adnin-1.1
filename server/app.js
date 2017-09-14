@@ -10,7 +10,7 @@ mongoose.connect('mongodb://localhost/hacktivpress-adnin',(err) => {
   err ? console.log('Can\'t connect to database') : console.log('Database connected')
 });
 
-var index = require('./routes/index');
+var users = require('./routes/users');
 var articles = require('./routes/articles');
 
 var app = express();
@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api', index);
+app.use('/api', users);
 app.use('/api/articles', articles);
 
 module.exports = app;
